@@ -81,11 +81,11 @@ class GenerateUrlBy5 extends URLGenerator {
     public function short()
     {
         $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-        $short_url = '';
+        $shortUrl = '';
         for ($i = 0; $i < 5; $i++) {
-            $short_url .= $characters[rand(0, strlen($characters) - 1)];
+            $shortUrl .= $characters[rand(0, strlen($characters) - 1)];
         }
-        return $short_url;
+        return $shortUrl;
     }
 }
 
@@ -100,7 +100,7 @@ class URLProcessor{
         //just for store urls for current user
         session_start();
         $this->generator = $generator;
-        $this->currentUrl = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+        $this->currentUrl = parse_url($currentUrl, PHP_URL_PATH);
         $this->urlToShort = $_GET['original_url'] ?? '';
     }
     public function init()
